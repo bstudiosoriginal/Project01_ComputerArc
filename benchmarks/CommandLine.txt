@@ -1,0 +1,32 @@
+Command lines to execute the benchmarks in this directory:
+---------------------------------------------------------
+
+CPU_TYPE = AtomicSimpleCPU  ==> AtomicSimpleCPU mode
+CPU_TYPE = TimingSimpleCPU  ==> TimuingSimpleCPU mode
+
+1) basicmath
+============
+build/ALPHA/gem5.opt  -d ./basicmath-results-CPU_TYPE  configs/example/se.py --cpu-type=<CPU_TYPE> -c <path to basic math binary> 
+
+For example, you can run basicmath binary by typing --
+
+$> build/ALPHA/gem5.opt  -d ./basicmath-results-atomic  configs/example/se.py --cpu-type=AtomicSimpleCPU  -c ../benchmarks/basicmath/basicmath_small
+$> build/ALPHA/gem5.opt  -d ./basicmath-results-timing  configs/example/se.py --cpu-type=TimingSimpleCPU  -c ../benchmarks/basicmath/basicmath_small
+
+(For details on command line options, please refer to the document on getting started with gem5)
+
+
+2) qsort
+========
+build/ALPHA/gem5.opt  -d ./qsort-results-CPU_TYPE  configs/example/se.py --cpu-type=<CPU_TYPE> -c <path to qsort binary> -o <path to input_large.dat> 
+
+
+3) FFT
+======
+build/ALPHA/gem5.opt  -d ./fft-results-CPU_TYPE  configs/example/se.py --cpu-type=<CPU_TYPE> -c <path to fft binary> -o "4 4096"
+
+
+4) dijkstra
+===========
+build/ALPHA/gem5.opt  -d ./dijkstra-results-CPU_TYPE  configs/example/se.py --cpu-type=<CPU_TYPE> -c <path to dijkstra binary> -o <path to input.dat> 
+
